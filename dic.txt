@@ -1,7 +1,4 @@
-import discord
-import os
-client=discord.Client()
-dic={
+dic={ 
 'otrafiestadehomosexuales':'img/otrafiestadehomosexuales.jpg',
 'ytueresunpavo':'img/ytueresunpavo.jpg',
 'terribleoremos':'img/terribleoremos.jpg',
@@ -51,23 +48,3 @@ dic={
 'terminastelosdeberes':'img/terminastelosdeberes.jpg',
 'pikachu':'img/pikachu.jpg',
 }
-@client.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content.startswith('papiivan'):
-        await message.channel.send('Vale verga')
-
-    if message.content.startswith("jaime"):
-        await message.channel.send('Y las nenas ?')
-
-    if message.content.startswith('/'):
-        await message.channel.send(file=discord.File(dic[message.content[1:]]))
-
-
-client.run(os.getenv('TOKEN'))
