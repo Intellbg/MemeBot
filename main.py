@@ -10,8 +10,15 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+    
+    if message.content.startswith('papiivan'):
+        await message.channel.send('Vale verga')
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    if message.content.startswith("jaime"):
+        await message.channel.send('Y las nenas ?')
+      
+    if message.content.startswith('vecerdomiserable'):
+        await message.channel.send(file=discord.File('img/vecerdomiserable.jpg'))
+
 
 client.run(os.getenv('TOKEN'))
