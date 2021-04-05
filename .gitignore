@@ -1,5 +1,4 @@
 DiscordBotEnv
 xd.env
-.replit
-poetry.lock
-pyproject.toml
+__pycache__
+DiscordBot
