@@ -28,8 +28,24 @@ async def on_message(message):
     #Meme Image Response key term #
     if message.content.startswith('#'):
         await message.channel.send(file=discord.File(index[message.content[1:].lower()]))
-    
-    
+    #text -> TeXt
+    if message.content.startswith('/rt'):            
+        await message.edit(content=tExTiNg(message.content[4:]))
+
+def tExTiNg(message):
+    index=0
+    message=message.lower()
+    capitalizeChar=True
+    for char in message:
+        if capitalizeChar:
+            message[index]=message[index].upper()
+        if char!=" ": 
+            capitalizeChar=not(capitalizeChar)
+        index+=1
+    return message
+       
+
+
 #Opens bot key and starts the bot
 file=open("key.env",'r')
 for i in file:
