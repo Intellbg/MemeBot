@@ -29,20 +29,25 @@ async def on_message(message):
     if message.content.startswith('#'):
         await message.channel.send(file=discord.File(index[message.content[1:].lower()]))
     #text -> TeXt
-    if message.content.startswith('/rt'):            
-        await message.edit(content=tExTiNg(message.content[4:]))
+    if message.content.startswith('/rt'):
+        holder=message.content
+        await message.delete()          
+        await holder.edit(content=tExTiNg(message.content[4:]))
 
 def tExTiNg(message):
     index=0
     message=message.lower()
     capitalizeChar=True
+    endMessage=""
     for char in message:
         if capitalizeChar:
             message[index]=message[index].upper()
+        else: 
+            message[index]=message[index]
         if char!=" ": 
             capitalizeChar=not(capitalizeChar)
         index+=1
-    return message
+    return endMessage
        
 
 
